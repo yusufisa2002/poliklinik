@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         }
                         ?>
                         <div class="form-group">
-                            <label for="nama">nama</label>
+                            <label for="nama"> Nama</label>
                             <input type="text" name="nama" class="form-control" required placeholder="Masukkan nama anda">
                         </div>
                         <div class="form-group">
