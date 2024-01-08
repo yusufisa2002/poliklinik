@@ -41,7 +41,7 @@ $dokter_schedules = $result->fetch_all(MYSQLI_ASSOC);
 <main id="daftarPoli-page">
     <div class="container" style="margin-top: 5.5rem;">
         <div class="row justify-content-center">
-            <h2 class="text-center mb-4">Pendaftaran Rawat Jalan</h2>
+            <h2 class="text-center mb-4">Pendaftaran Poli</h2>
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header text-center fw-bold" style="font-size: 1.5rem;">Pilih Klinik</div>
