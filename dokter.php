@@ -120,7 +120,7 @@
                         <input type="number" name="no_hp" class="form-control" required placeholder="08xxxxxxxxxx" value="<?php echo $no_hp ?>">
                     </div>
                     <div class="dropdown mb-3 w-25">
-                        <label for="id_poli">Poli Dokter <span class="text-danger">*</span></label>
+                        <label for="id_poli">Poli <span class="text-danger">*</span></label>
                         <select class="form-select" name="id_poli" aria-label="id_poli">
                             <option selected>Pilih Poli...</option>
                             <?php
