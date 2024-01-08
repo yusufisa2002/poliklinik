@@ -44,7 +44,7 @@ $dokter_schedules = $result->fetch_all(MYSQLI_ASSOC);
             <h2 class="text-center mb-4">Pendaftaran Poli</h2>
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header text-center fw-bold" style="font-size: 1.5rem;">Pilih Klinik</div>
+                    <div class="card-header text-center fw-bold" style="font-size: 1.5rem;">Pilih Poli</div>
                     <div class="card-body">
                         <form method="POST" action="">
                             <?php
