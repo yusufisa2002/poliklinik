@@ -60,37 +60,11 @@ if (isset($_GET['aksi'])) {
 <main id="obat-page">
     <div class="container" style="margin-top: 5.5rem;">
     <div class="row">
-            <h2 class="ps-0">Halaman Poli</h2>
-            <div class="container">
-                <form action="" method="POST" onsubmit="return(validate());">
-                    <?php
-                    $nama_poli = '';
-                    $keterangan = '';
-                    if (isset($_GET['id'])) {
-                        $get = mysqli_query($mysqli, "SELECT * FROM poli 
-                                WHERE id='" . $_GET['id'] . "'");
-                        while ($row = mysqli_fetch_array($get)) {
-                            $nama_poli = $row['nama_poli'];
-                            $keterangan = $row['keterangan'];
-                        }
-                    ?>
-                        <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
-                    <?php
-                    }
-                    ?>
-                    <div class="mb-3 w-25">
-                        <label for="nama_poli">Nama Poli <span class="text-danger">*</span></label>
-                        <input type="text" name="nama_poli" class="form-control" required placeholder="Masukkan nama poli" value="<?php echo $nama_poli ?>">
-                    </div>
-                    <div class="mb-3 w-25">
-                        <label for="keterangan">Keterangan <span class="text-danger">*</span></label>
-                        <textarea name="keterangan" class="form-control" required placeholder="Masukkan keterangan"><?php echo $keterangan ?></textarea>
-                    </div>
-                    <div class="d-flex justify-content-end mt-2">
-                        <button type="submit" name="simpanData" class="btn btn-primary">Simpan</button>
-                    </div>
-    
-                </form>
+            <h2 class="ps-0">Daftar Poli</h2>
+            <div class="d-flex justify-content-end mt-2">
+                <a class="btn btn-sm btn-primary text-white" href="index.php?page=tambahPoli">
+                    <i class="fa-regular fa-plus"></i> Tambah Poli
+                </a>
             </div>
 
             <div class="table-responsive mt-3 px-0">
@@ -114,7 +88,7 @@ if (isset($_GET['aksi'])) {
                                     <td><?php echo $data['nama_poli'] ?></td>
                                     <td><?php echo $data['keterangan'] ?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-warning text-white" href="index.php?page=poli&id=<?php echo $data['id'] ?>">
+                                        <a class="btn btn-sm btn-warning text-white" href="index.php?page=editPoli&id=<?php echo $data['id'] ?>">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </a>
                                     </td>

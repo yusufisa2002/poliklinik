@@ -11,7 +11,7 @@
 
             <div class="table-responsive mt-3 px-0">
                 <table class="table text-center">
-                    <thead class="table-primary">
+                    <thead class="table-secondary">
                         <tr>
                             <th valign="middle">No</th>
                             <th valign="middle">Nama Pasien</th>
@@ -20,8 +20,8 @@
                             <th valign="middle">Hari</th>
                             <th valign="middle">Tanggal Diperiksa</th>
                             <th valign="middle">Catatan</th>
+                            <th valign="middle">Obat</th>
                             <th valign="middle">Biaya Periksa</th>
-                            <th valign="middle">Nama Obat</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,8 +48,8 @@
                                     <td><?php echo $data['hari'] ?></td>
                                     <td><?php echo $data['tgl_periksa'] ?></td>
                                     <td><?php echo $data['catatan'] ?></td>
-                                    <td><?php echo $data['biaya_periksa'] ?></td>
                                     <td><?php echo $data['nama_obat'] ?></td>
+                                    <td><?php echo $data['biaya_periksa'] ?></td>
                                 </tr>
                         <?php endwhile; ?>
                     </tbody>

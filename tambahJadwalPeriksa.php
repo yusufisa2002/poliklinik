@@ -23,7 +23,7 @@
                 echo "
                     <script> 
                         alert('Berhasil mengubah data.');
-                        document.location='dashboardDokter.php?page=jadwalDokter';
+                        document.location='dashboardDokter.php?page=jadwalPeriksa';
                     </script>
                 ";
             } else {
@@ -39,7 +39,7 @@
                 echo "
                     <script> 
                         alert('Berhasil menambah data.');
-                        document.location='dashboardDokter.php?page=jadwalDokter';
+                        document.location='dashboardDokter.php?page=jadwalPeriksa';
                     </script>
                 ";
             } else {
@@ -49,36 +49,12 @@
             $stmt->close();
         }
     }
-
-    if (isset($_GET['aksi'])) {
-        if ($_GET['aksi'] == 'hapus') {
-            $stmt = $mysqli->prepare("DELETE FROM pasien WHERE id = ?");
-            $stmt->bind_param("i", $_GET['id']);
-
-            if ($stmt->execute()) {
-                echo "
-                    <script> 
-                        alert('Berhasil menghapus data.');
-                        document.location='dashboardDokter.php?page=jadwalDokter';
-                    </script>
-                ";
-            } else {
-                echo "
-                    <script> 
-                        alert('Gagal menghapus data: " . mysqli_error($mysqli) . "');
-                        document.location='dashboardDokter.php?page=jadwalDokter';
-                    </script>
-                ";
-            }
-
-            $stmt->close();
-        }
-    }
 ?>
-<main id="jadwaldokter-page">
+
+<main id="jadwalPeriksa-page">
     <div class="container" style="margin-top: 5.5rem;">
         <div class="row">
-            <h2 class="ps-0">Jadwal Dokter</h2>
+            <h2 class="ps-0">Tambah Jadwal Periksa</h2>
             <!-- <div class="d-flex justify-content-end pe-0">
                 <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#tambahDokter">
                     <i class="fa-regular fa-plus"></i> Tambah
@@ -142,51 +118,7 @@
                     <div class="d-flex justify-content-end mt-2">
                         <button type="submit" name="simpanData" class="btn btn-primary">Simpan</button>
                     </div>
-    
                 </form>
-            </div>
-
-            <div class="table-responsive mt-3 px-0">
-                <table class="table text-center">
-                    <thead class="table-primary">
-                        <tr>
-                            <th valign="middle">No</th>
-                            <th valign="middle">Nama Dokter</th>
-                            <th valign="middle">Hari</th>
-                            <th valign="middle" style="width: 25%;" colspan="2">Waktu</th>
-                            <!-- <th valign="middle">Jam Selesai</th> -->
-                            <th valign="middle" style="width: 0.5%;" colspan="2">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            $result = mysqli_query($mysqli, "SELECT dokter.nama, jadwal_periksa.id, jadwal_periksa.hari, jadwal_periksa.jam_mulai, jadwal_periksa.jam_selesai FROM dokter JOIN jadwal_periksa ON dokter.id = jadwal_periksa.id_dokter");
-                            $no = 1;
-                            while ($data = mysqli_fetch_array($result)) :
-                            ?>
-                                <tr>
-                                    <td><?php echo $no++ ?></td>
-                                    <td><?php echo $data['nama'] ?></td>
-                                    <td><?php echo $data['hari'] ?></td>
-                                    <td><?php echo $data['jam_mulai'] ?> WIB</td>
-                                    <td><?php echo $data['jam_selesai'] ?> WIB</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-warning text-white" href="dashboardDokter.php?page=jadwalDokter&id=<?php echo $data['id'] ?>">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a href="dashboardDokter.php?page=jadwalDokter&id=<?php echo $data['id'] ?>&aksi=hapus" class="btn btn-sm btn-danger text-white">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-
-                        <?php endwhile; ?>
-                    </tbody>
-                </table>
-                        
-
             </div>
         </div>
     </div>

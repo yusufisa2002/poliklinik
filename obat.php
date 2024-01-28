@@ -62,48 +62,11 @@ if (isset($_GET['aksi'])) {
 <main id="obat-page">
     <div class="container" style="margin-top: 5.5rem;">
         <div class="row">
-            <h2 class="ps-0">Halaman Obat</h2>
-            <!-- <div class="d-flex justify-content-end pe-0">
-                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#tambahDokter">
-                    <i class="fa-regular fa-plus"></i> Tambah
-                </button>
-            </div> -->
-            <div class="container">
-                <form action="" method="POST" onsubmit="return(validate());">
-                    <?php
-                    $nama_obat = '';
-                    $kemasan = '';
-                    $harga = '';
-                    if (isset($_GET['id'])) {
-                        $get = mysqli_query($mysqli, "SELECT * FROM obat 
-                                WHERE id='" . $_GET['id'] . "'");
-                        while ($row = mysqli_fetch_array($get)) {
-                            $nama_obat = $row['nama_obat'];
-                            $kemasan = $row['kemasan'];
-                            $harga = $row['harga'];
-                        }
-                    ?>
-                        <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
-                    <?php
-                    }
-                    ?>
-                    <div class="mb-3 w-25">
-                        <label for="nama_obat">Nama Obat <span class="text-danger">*</span></label>
-                        <input type="text" name="nama_obat" class="form-control" required placeholder="Masukkan obat" value="<?php echo $nama_obat ?>">
-                    </div>
-                    <div class="mb-3 w-25">
-                        <label for="kemasan">Kemasan <span class="text-danger">*</span></label>
-                        <input type="text" name="kemasan" class="form-control" required placeholder="Masukkan kemasan" value="<?php echo $kemasan ?>">
-                    </div>
-                    <div class="mb-3 w-25">
-                        <label for="harga">Harga <span class="text-danger">*</span></label>
-                        <input type="number" name="harga" class="form-control" required placeholder="Rp. " value="<?php echo $harga ?>">
-                    </div>
-                    <div class="d-flex justify-content-end mt-2">
-                        <button type="submit" name="simpanData" class="btn btn-primary">Simpan</button>
-                    </div>
-    
-                </form>
+            <h2 class="ps-0">Daftar Obat</h2>
+            <div class="d-flex justify-content-end mt-2">
+                <a class="btn btn-sm btn-primary text-white" href="index.php?page=tambahObat">
+                    <i class="fa-regular fa-plus"></i> Tambah Obat
+                </a>
             </div>
 
             <div class="table-responsive mt-3 px-0">
@@ -129,7 +92,7 @@ if (isset($_GET['aksi'])) {
                                     <td><?php echo $data['kemasan'] ?></td>
                                     <td><?php echo $data['harga'] ?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-warning text-white" href="index.php?page=obat&id=<?php echo $data['id'] ?>">
+                                        <a class="btn btn-sm btn-warning text-white" href="index.php?page=editObat&id=<?php echo $data['id'] ?>">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </a>
                                     </td>

@@ -17,9 +17,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = mysqli_query($mysqli, "SELECT COUNT(*) as total FROM pasien");
         $row = mysqli_fetch_assoc($result);
         $totalPasien = $row['total'];
+        $set_jumlah_pasien = '';
+            if ($totalPasien < 10){
+                $set_jumlah_pasien = "00{$totalPasien}";
+            }else{
+                if ($totalPasien < 100){
+                    $set_jumlah_pasien = "0{$totalPasien}";
+                }else{
+                    $set_jumlah_pasien = "{$totalPasien}";
+                }
+            }
 
         // Generate no_rm based on the current date and total number of pasien
-        $no_rm = date('Ymd') . '-' . ($totalPasien + 1);
+        $no_rm = date('Ym') . '-' . (string)$set_jumlah_pasien;
 
         $insert_query = "INSERT INTO pasien (nama, no_ktp, alamat, no_hp, no_rm) VALUES ('$nama', '$no_ktp', '$alamat', '$no_hp', '$no_rm')";
         if (mysqli_query($mysqli, $insert_query)) {

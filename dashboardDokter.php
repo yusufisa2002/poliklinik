@@ -36,7 +36,7 @@ include_once("koneksi.php");
                             <a class="nav-link active" aria-current="page" href="dashboardDokter.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboardDokter.php?page=jadwalDokter">Jadwal Periksa</a>
+                            <a class="nav-link" href="dashboardDokter.php?page=jadwalPeriksa">Jadwal Periksa</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="dashboardDokter.php?page=periksa">Periksa Pasien</a>
@@ -53,6 +53,8 @@ include_once("koneksi.php");
                                 <img src="images/profile.png" width="40" height="40" class="rounded-circle">
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="profilDokter.php"><i class="fas fa-user-alt fa-fw"></i> Profil</a>
+                                <hr class="dropdown-divider">
                                 <a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt fa-fw"></i> Log Out</a>
                             </div>
                         </li>   
